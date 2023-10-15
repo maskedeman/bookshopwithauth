@@ -1,0 +1,53 @@
+syntax="proto3";
+option go_package="./User";
+
+service UserService{
+    rpc Create(CreateUserRequest) returns (CreateUserResponse);
+    rpc Read(ReadUserRequest) returns(ReadUserResponse);
+    rpc Update(UpdateUserRequest) returns(UpdateUserResponse);
+    rpc Delete(DeleteUserRequest )returns(DeleteUserResponse);
+}
+
+message User{
+    string username=1;
+    string email=2;
+}
+message UserId{
+    string id=1;
+}
+message CreateUserRequest{
+ User User=1;
+}
+
+message CreateUserResponse{
+  UserId bid=1;
+
+}
+
+message ReadUserRequest{
+    UserId bid=1;
+}
+
+message ReadUserResponse{
+    User User=1;
+}
+
+message UpdateUserRequest{
+    UserId bid=1;
+
+}
+
+message UpdateUserResponse{
+    User User=1;
+
+}
+
+message DeleteUserRequest{
+    UserId bid=1;
+}
+
+message DeleteUserResponse{
+
+    UserId bid=1;
+
+}

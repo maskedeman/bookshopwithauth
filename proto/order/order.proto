@@ -1,0 +1,43 @@
+syntax="proto3";
+option go_package="./order";
+
+service OrderService{
+    rpc Create(CreateOrderRequest) returns (CreateOrderResponse);
+    rpc List(ListOrderRequest) returns(ListOrderResponse);
+    rpc Delete(DeleteOrderRequest )returns(DeleteOrderResponse);
+}
+
+message Order{
+    string name=2;
+    int32 quantity=3;
+    
+}
+message OrderId{
+    string id=1;
+}
+message CreateOrderRequest{
+ Order Order=1;
+}
+
+message CreateOrderResponse{
+  OrderId bid=1;
+
+}
+
+message ListOrderRequest{
+    OrderId bid=1;
+}
+
+message ListOrderResponse{
+    Order Order=1;
+}
+
+message DeleteOrderRequest{
+    OrderId bid=1;
+}
+
+message DeleteOrderResponse{
+
+    OrderId bid=1;
+
+}
